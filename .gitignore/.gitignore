@@ -1,0 +1,65 @@
+//Variables
+float x[] = new float[5];//25.5;
+float y = 135.5;
+int colorR[] = new int [5]; // 50;
+int colorG = 0;
+int colorB = 0;
+int clicks = 0;
+int colorOtro = 50;
+int puntos = 0;
+
+
+//Setup
+void setup(){
+  for(int i = 0; i<5; i++){
+    x[i]=25.5+(130*i);
+    colorR[i] = 50+(50*i);
+  }
+  noStroke();
+  size(700,400);
+}
+//Draw
+void draw(){
+  //background(255);
+  for(int i=0;i<5;i++){
+    fill(colorR[i],colorG,colorB);
+    rect(x[i],y-100,130,130);   
+  }
+    
+    colorOtro = colorOtro + 50;
+    if(colorOtro > 250){colorOtro = 50;}
+    primerColor();
+    delay(300);
+    textSize(10);
+    text(clicks,10,10);
+}
+//Metodos
+void mouseClicked(){
+    clicks++;
+}
+void primerColor(){
+  if(clicks>=0){
+    if(clicks<1){
+    fill(colorOtro,colorG,colorB);
+    rect(x[0],y+100,130,130);
+          
+    }
+    if(clicks<2){
+    fill(colorOtro,colorG,colorB);
+    rect(x[1],y+100,130,130);
+    }
+    if(clicks<3){
+    fill(colorOtro,colorG,colorB);
+    rect(x[2],y+100,130,130);
+    }
+    if(clicks<4){
+    fill(colorOtro,colorG,colorB);
+    rect(x[3],y+100,130,130);
+    }
+    if(clicks<5){
+    fill(colorOtro,colorG,colorB);
+    rect(x[4],y+100,130,130);
+    }
+    
+  }
+}
